@@ -11,8 +11,7 @@ ___INFO___
   "displayName": "BoostYourLeads Pixel",
   "categories": [
     "ANALYTICS",
-    "ATTRIBUTION",
-    "LEAD_GENERATION"
+    "DATA_MANAGEMENT"
   ],
   "brand": {
     "id": "brand_boostyourleads",
