@@ -31,7 +31,7 @@ ___TEMPLATE_PARAMETERS___
     "type": "TEXT",
     "name": "clientId",
     "displayName": "BoostYourLeads Client ID (User UID)",
-    "simpleValueType": "STRING",
+    "simpleValueType": true,
     "valueValidators": [
       {
         "type": "NON_EMPTY"
@@ -44,106 +44,5 @@ ___TEMPLATE_PARAMETERS___
     "name": "trackPageview",
     "displayName": "Automatically Track Pageviews",
     "checkboxText": "Capture page visits, referrers, and UTM parameters",
-    "simpleValueType": "BOOLEAN"
+    "simpleValueType": true
   },
-  {
-    "type": "CHECKBOX",
-    "name": "trackForms",
-    "displayName": "Automatically Capture Form Fills",
-    "checkboxText": "Securely match and attribute form submissions for lead scoring",
-    "simpleValueType": "BOOLEAN"
-  }
-]
-
-___SANDBOXED_JS_FOR_WEB_TEMPLATE___
-
-const injectScript = require('injectScript');
-const copyFromWindow = require('copyFromWindow');
-const callInWindow = require('callInWindow');
-const logToConsole = require('logToConsole');
-
-const trackingUrl = 'https://back-end.boostyourleads.ca/byl-tag.js';
-
-// Inject the core tracking script on the user's webpage
-injectScript(trackingUrl, () => {
-  const byl = copyFromWindow('byl');
-  if (byl) {
-    callInWindow('byl', 'init', data.clientId);
-    
-    if (data.trackPageview) {
-      callInWindow('byl', 'track', 'pageview');
-    }
-    
-    if (data.trackForms) {
-      callInWindow('byl', 'track', 'forms');
-    }
-  } else {
-    logToConsole('BYL Tracker failed to initialize.');
-  }
-  data.gtmOnSuccess();
-}, data.gtmOnFailure);
-
-___WEB_PERMISSIONS___
-
-[
-  {
-    "instance": {
-      "key": {
-        "publicId": "inject_script",
-        "versionId": "1"
-      },
-      "param": [
-        {
-          "key": "urls",
-          "value": {
-            "type": 2,
-            "listItem": [
-              {
-                "type": 1,
-                "value": "https://back-end.boostyourleads.ca/byl-tag.js"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "clientAnnotations": {
-      "isEditedByUser": true
-    },
-    "isRequired": true
-  },
-  {
-    "instance": {
-      "key": {
-        "publicId": "access_globals",
-        "versionId": "1"
-      },
-      "param": [
-        {
-          "key": "keys",
-          "value": {
-            "type": 2,
-            "listItem": [
-              {
-                "type": 3,
-                "key": "byl",
-                "read": true,
-                "write": true,
-                "execute": true
-              }
-            ]
-          }
-        }
-      ]
-    },
-    "isRequired": true
-  }
-]
-
-___TESTS___
-
-scenarios: []
-
-___NOTES___
-
-Released natively for GTM Community Template Gallery.
