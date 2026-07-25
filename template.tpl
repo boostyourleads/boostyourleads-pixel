@@ -82,3 +82,68 @@ injectScript(trackingUrl, () => {
   }
   data.gtmOnSuccess();
 }, data.gtmOnFailure);
+
+___WEB_PERMISSIONS___
+
+[
+  {
+    "instance": {
+      "key": {
+        "publicId": "inject_script",
+        "versionId": "1"
+      },
+      "param": [
+        {
+          "key": "urls",
+          "value": {
+            "type": 2,
+            "listItem": [
+              {
+                "type": 1,
+                "value": "https://back-end.boostyourleads.ca/byl-tag.js"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
+    },
+    "isRequired": true
+  },
+  {
+    "instance": {
+      "key": {
+        "publicId": "access_globals",
+        "versionId": "1"
+      },
+      "param": [
+        {
+          "key": "keys",
+          "value": {
+            "type": 2,
+            "listItem": [
+              {
+                "type": 3,
+                "key": "byl",
+                "read": true,
+                "write": true,
+                "execute": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "isRequired": true
+  }
+]
+
+___TESTS___
+
+scenarios: []
+
+___NOTES___
+
+Released natively for GTM Community Template Gallery.
