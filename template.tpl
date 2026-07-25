@@ -11,7 +11,8 @@ ___INFO___
   "displayName": "BoostYourLeads Pixel",
   "categories": [
     "ANALYTICS",
-    "DATA_MANAGEMENT"
+    "ATTRIBUTION",
+    "LEAD_GENERATION"
   ],
   "brand": {
     "id": "brand_boostyourleads",
@@ -59,7 +60,6 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 const injectScript = require('injectScript');
 const copyFromWindow = require('copyFromWindow');
 const callInWindow = require('callInWindow');
-const logToConsole = require('logToConsole');
 
 const trackingUrl = 'https://back-end.boostyourleads.ca/byl-tag.js';
 
@@ -76,8 +76,6 @@ injectScript(trackingUrl, () => {
     if (data.trackForms) {
       callInWindow('byl', 'track', 'forms');
     }
-  } else {
-    logToConsole('BYL Tracker failed to initialize.');
   }
   data.gtmOnSuccess();
 }, data.gtmOnFailure);
