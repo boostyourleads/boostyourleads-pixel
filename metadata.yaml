@@ -2,4 +2,4 @@ homepage: "https://agents.boostyourleads.ca"
 documentation: "https://agents.boostyourleads.ca"
 versions:
   - sha: "1c036970648cd43f5c37f404e78eb9c3441b790c"
-    changeNotes: "Update backend tracking pixel URL to back-end.boostyourleads.ca"
+    changeNotes: "Initial release of the BoostYourLeads Pixel for web attribution and lead scoring."
