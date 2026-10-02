@@ -1,5 +1,5 @@
 homepage: "https://agents.boostyourleads.ca"
 documentation: "https://agents.boostyourleads.ca"
 versions:
-  - sha: "1c036970648cd43f5c37f404e78eb9c3441b790c"
+  - sha: "517eb70afb1c4233f2a636a6d5f01316ecb20f52"
     changeNotes: "Initial release of the BoostYourLeads Pixel for web attribution and lead scoring."
