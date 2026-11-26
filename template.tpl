@@ -1,85 +1,199 @@
 ___TERMS_OF_SERVICE___
-By creating or modifying this file you agree to Google Tag Manager's Community Template Gallery Developer Terms of Service available at https://developers.google.com/tag-manager/gallery-tos (or such other URL as Google may provide), as modified from time to time.
+
+By creating or modifying this file you agree to Google Tag Manager's Community
+Template Gallery Developer Terms of Service available at
+https://developers.google.com/tag-manager/gallery-tos (or such other URL as
+Google may provide), as modified from time to time.
+
 
 ___INFO___
 
 {
   "type": "TAG",
   "id": "cvt_temp_public_id",
-  "version": 1,
+  "version": 3,
   "securityGroups": [],
-  "displayName": "BoostYourLeads Pixel",
-  "categories": [
-    "ANALYTICS",
-    "ATTRIBUTION",
-    "LEAD_GENERATION"
-  ],
+  "displayName": "BoostYourLeads Official Pixel \u0026 Analytics Tag",
   "brand": {
-    "id": "brand_boostyourleads",
+    "id": "boostyourleads",
     "displayName": "BoostYourLeads"
   },
-  "description": "The official BoostYourLeads Pixel for web attribution, B2B firmographics resolution, and automated lead scoring.",
+  "description": "Official Google Tag Manager template for BoostYourLeads (v2.1). Supports multi-brand installation IDs, privacy-safe form metadata, GTM Consent Mode v2, SPA routing, scroll depth, and custom conversion events.",
   "containerContexts": [
     "WEB"
-  ],
-  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAEMUlEQVR42u2YTyh0XRzHv+fec2eSPyVWskA2llMWYsGOsrOxIiVCU2QjpSxEKdmJhZKiRikpJJEiG2XJWJBJRqGY8Sdm7p/vu3jeuZln6OnN8HpyfnW73XN+3XPP5/7+HgGA+MGi4YeLAqAAKAAKgAKgACgACoACoAAoAAqAAqAAKAAKgAKgACgAP0tk2khqGoQQSWNCCNi2DZJJ8yThOE6SnqZp7lxCHwAcxwH5eQfX4iuOxYUQKZt4a+yvtABN0+A4DpqamlBTU4N4PA4AiMfjCAaDWFhYwN3dHfr7+1FSUgIhBGZnZ7G7uwspJSzLQlFREfr7+yGEwM3NDfb29tDQ0ACSGB0dxcnJibvOZwg/cum6TgCcnZ3lW3J8fMy8vDzW19e7Y6enp8zJyaFhGATA1dVVd87v97O9vd19rq6uTlrnE670AJiYmKBpmoxEIuzr6+PKygpN0yRJ9vb2EgDHx8fdjU1MTBAAW1tbSZK2bXNra4sA2NXVRdM0aZomKysr/w4Ak5OTJMnb21sCoNfrZSQSoW3bHBkZoaZpzM7O5uHhIR3HoWVZbGlpYSgUom3bjEajLCsroxCC3d3dLqiqqqpPBSDT7U+6rqOiogJVVVXIysqCpmnY39+H4zh4eHhAZ2cntre3IYTAzMwMHMeBpmkYGBhAMBgEANi2/aWBMC0WMDU1RZKMx+OMx+OuWc/NzREAhRCUUhIAx8bGSJKxWIwkubm5SSGEGxP8fv+XWYD2GSnPMAw3Q9TW1mJychKGYYAkdF3H4OAggsEgDMNANBqF3+8HyZQ64k/r/Bf9T68EEzn96ekJ9fX1qKmpwfr6OvLz89HR0YGGhgbYtg1d1/H09ISjoyMIIXB5eYmzszO36HnLpaSU0HUduq4n1RCvC6b/vRJMiGVZ2NnZwePjI2KxGOrq6mBZFsrLyxEIBNwNeDyeXx8gJQzDQCwWe/N90WgUlmWlwM7NzYWUEjc3N98DQKK81TQNPp8P9/f36O7uhmVZkFLi6uoqRff1/XdJWENjYyN8Ph+klBBCIBAIoLi4GMvLy8jIyEBzczM2NjY+VCilJQhOT0+7gctxnKRi6Pz8nIWFhUmBcG1tjSR5dnbGzMzMXynp37menh6+J6WlpRwaGnKfFxcXPxQk02YB19fXCIfDeH5+dgPe4+MjDg4OMDw8jIuLCwgh3L8UDodxeXmJUCiUYgGRSMR91+sGKuHvS0tLaGtrQ0ZGBubn579HM+TxeGAYhmvSQgiYpun67+/Nj9frhZQStm3j5eUl2S+lhNfrTTFpIQRisRhs20ZBQQE8Hg9CodD37gZ1XU9pf9PZXX60q0wrgLfy8nsf91r3LZ33cvzrjb92qW99HqCOxBQABUABUAAUAAVAAVAAFAAFQAFQABQABUABUAAUAAVAAVAAFAAFQAH4DvIPgD6BRG2dQMAAAAAASUVORK5CYII="
+  ]
 }
+
 
 ___TEMPLATE_PARAMETERS___
 
 [
   {
+    "type": "SELECT",
+    "name": "tagMode",
+    "displayName": "Tag Mode",
+    "macrosInSelect": false,
+    "selectItems": [
+      {
+        "value": "init",
+        "displayValue": "Initialize BYL Pixel & Auto-Tracking"
+      },
+      {
+        "value": "event",
+        "displayValue": "Track Canonical Event (Conversion / Engagement)"
+      }
+    ],
+    "simpleValueType": true,
+    "defaultValue": "init"
+  },
+  {
     "type": "TEXT",
     "name": "clientId",
-    "displayName": "BoostYourLeads Client ID (User UID)",
+    "displayName": "BoostYourLeads Installation ID (or Legacy Client ID)",
     "simpleValueType": true,
     "valueValidators": [
       {
         "type": "NON_EMPTY"
       }
     ],
-    "helpHint": "Your unique BYL account identifier, found in the Co-Pilot settings portal."
+    "help": "Enter your Brand Tracking Installation ID (e.g. byl_inst_...) from BoostYourLeads Customer Journey Setup."
+  },
+  {
+    "type": "SELECT",
+    "name": "environment",
+    "displayName": "Environment",
+    "macrosInSelect": false,
+    "selectItems": [
+      {
+        "value": "production",
+        "displayValue": "Production"
+      },
+      {
+        "value": "staging",
+        "displayValue": "Staging"
+      }
+    ],
+    "simpleValueType": true,
+    "defaultValue": "production"
+  },
+  {
+    "type": "TEXT",
+    "name": "eventType",
+    "displayName": "Event Type (when Tag Mode = Track Canonical Event)",
+    "simpleValueType": true,
+    "enablingConditions": [
+      {
+        "paramName": "tagMode",
+        "paramValue": "event",
+        "type": "EQUALS"
+      }
+    ],
+    "help": "Canonical event name such as lead_created, form_success, cta_click, meeting_booked, add_to_cart, checkout_started, or purchase."
   },
   {
     "type": "CHECKBOX",
     "name": "trackPageview",
-    "displayName": "Automatically Track Pageviews",
-    "checkboxText": "Capture page visits, referrers, and UTM parameters",
-    "simpleValueType": true
+    "displayName": "Automatically Track Page Views \u0026 SPA Route Changes",
+    "checkboxText": "Send a page_view event when this tag fires and on SPA pushState navigation",
+    "simpleValueType": true,
+    "defaultValue": true,
+    "enablingConditions": [
+      {
+        "paramName": "tagMode",
+        "paramValue": "init",
+        "type": "EQUALS"
+      }
+    ]
   },
   {
     "type": "CHECKBOX",
     "name": "trackForms",
-    "displayName": "Automatically Capture Form Fills",
-    "checkboxText": "Securely match and attribute form submissions for lead scoring",
-    "simpleValueType": true
+    "displayName": "Automatically Track Form Metadata (Zero-PII)",
+    "checkboxText": "Capture form_start and form_submit structural metadata without reading or hashing input values",
+    "simpleValueType": true,
+    "defaultValue": true,
+    "enablingConditions": [
+      {
+        "paramName": "tagMode",
+        "paramValue": "init",
+        "type": "EQUALS"
+      }
+    ]
+  },
+  {
+    "type": "CHECKBOX",
+    "name": "trackScroll",
+    "displayName": "Automatically Track Scroll Depth Milestones (25%, 50%, 75%, 100%)",
+    "checkboxText": "Emit scroll_depth engagement milestones",
+    "simpleValueType": true,
+    "defaultValue": true,
+    "enablingConditions": [
+      {
+        "paramName": "tagMode",
+        "paramValue": "init",
+        "type": "EQUALS"
+      }
+    ]
+  },
+  {
+    "type": "CHECKBOX",
+    "name": "requireExplicitConsent",
+    "displayName": "Require Explicit Consent Before Persisting Analytics",
+    "checkboxText": "Block event persistence until analytics_storage is explicitly granted",
+    "simpleValueType": true,
+    "defaultValue": false,
+    "enablingConditions": [
+      {
+        "paramName": "tagMode",
+        "paramValue": "init",
+        "type": "EQUALS"
+      }
+    ]
   }
 ]
+
 
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
 const injectScript = require('injectScript');
 const copyFromWindow = require('copyFromWindow');
+const setInWindow = require('setInWindow');
 const callInWindow = require('callInWindow');
+const createQueue = require('createQueue');
 
-const trackingUrl = 'https://back-end.boostyourleads.ca/byl-tag.js';
+// Ensure the global queue is initialized safely inside GTM's sandboxed execution
+const byl = copyFromWindow('byl');
+if (!byl) {
+  const queue = createQueue('byl_q');
+  setInWindow('byl', function() {
+    queue.apply(null, arguments);
+  }, true);
+}
 
-// Inject the core tracking script on the user's webpage
-injectScript(trackingUrl, () => {
-  const byl = copyFromWindow('byl');
-  if (byl) {
-    callInWindow('byl', 'init', data.clientId);
-    
-    if (data.trackPageview) {
-      callInWindow('byl', 'track', 'pageview');
-    }
-    
-    if (data.trackForms) {
-      callInWindow('byl', 'track', 'forms');
-    }
+if (data.tagMode === 'event') {
+  if (data.eventType) {
+    callInWindow('byl', 'track', data.eventType, { source: 'gtm_template' });
   }
   data.gtmOnSuccess();
-}, data.gtmOnFailure);
+} else {
+  // Initialize the client configuration via the unified v2.1 SDK contract
+  callInWindow('byl', 'init', data.clientId, {
+    installationId: data.clientId,
+    clientId: data.clientId,
+    propertyId: data.clientId,
+    environment: data.environment || 'production',
+    trackPageview: data.trackPageview !== false,
+    trackForms: data.trackForms !== false,
+    trackSpa: data.trackPageview !== false,
+    trackScroll: data.trackScroll !== false,
+    requireExplicitConsent: data.requireExplicitConsent === true
+  });
+
+  // Load the core BoostYourLeads tracking script from the canonical collector
+  const scriptUrl = 'https://back-end.boostyourleads.ca/byl-tag.js';
+  injectScript(scriptUrl, data.gtmOnSuccess, data.gtmOnFailure, 'byl_pixel_tag');
+}
+
 
 ___WEB_PERMISSIONS___
 
@@ -98,7 +212,7 @@ ___WEB_PERMISSIONS___
             "listItem": [
               {
                 "type": 1,
-                "string": "https://back-end.boostyourleads.ca/byl-tag.js"
+                "string": "https://back-end.boostyourleads.ca/*"
               }
             ]
           }
@@ -125,40 +239,31 @@ ___WEB_PERMISSIONS___
               {
                 "type": 3,
                 "mapKey": [
-                  {
-                    "type": 1,
-                    "string": "key"
-                  },
-                  {
-                    "type": 1,
-                    "string": "read"
-                  },
-                  {
-                    "type": 1,
-                    "string": "write"
-                  },
-                  {
-                    "type": 1,
-                    "string": "execute"
-                  }
+                  { "type": 1, "string": "key" },
+                  { "type": 1, "string": "read" },
+                  { "type": 1, "string": "write" },
+                  { "type": 1, "string": "execute" }
                 ],
                 "mapValue": [
-                  {
-                    "type": 1,
-                    "string": "byl"
-                  },
-                  {
-                    "type": 8,
-                    "boolean": true
-                  },
-                  {
-                    "type": 8,
-                    "boolean": true
-                  },
-                  {
-                    "type": 8,
-                    "boolean": true
-                  }
+                  { "type": 1, "string": "byl" },
+                  { "type": 8, "boolean": true },
+                  { "type": 8, "boolean": true },
+                  { "type": 8, "boolean": true }
+                ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  { "type": 1, "string": "key" },
+                  { "type": 1, "string": "read" },
+                  { "type": 1, "string": "write" },
+                  { "type": 1, "string": "execute" }
+                ],
+                "mapValue": [
+                  { "type": 1, "string": "byl_q" },
+                  { "type": 8, "boolean": true },
+                  { "type": 8, "boolean": true },
+                  { "type": 8, "boolean": true }
                 ]
               }
             ]
@@ -166,14 +271,19 @@ ___WEB_PERMISSIONS___
         }
       ]
     },
+    "clientAnnotations": {
+      "isEditedByUser": true
+    },
     "isRequired": true
   }
 ]
+
 
 ___TESTS___
 
 scenarios: []
 
+
 ___NOTES___
 
-Released natively for GTM Community Template Gallery.
+BoostYourLeads Official GTM Template v2.1 (Multi-Brand, Zero-PII, Consent Mode v2)
