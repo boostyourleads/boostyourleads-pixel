@@ -1,7 +1,7 @@
 homepage: "https://agents.boostyourleads.ca"
 documentation: "https://agents.boostyourleads.ca"
 versions:
-  - sha: "1cdcf0e000308dc22859b80ec06839a5dd83cc47"
+  - sha: "7895896651e12296e06e647aa3403099c9cc78d1"
     changeNotes: "Upgrade to v2.1.0 first-party SDK contract (back-end.boostyourleads.ca/byl-tag.js) with consent-first tracking, CSPRNG visitor ID, SPA support, and multi-channel click-ID capture."
   - sha: "517eb70afb1c4233f2a636a6d5f01316ecb20f52"
     changeNotes: "Initial release of the BoostYourLeads Pixel for web attribution and lead scoring."
